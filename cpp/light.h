@@ -239,6 +239,8 @@ private:
     void deleteImagePixelsOriginal();
     void deleteimageBrightnessOriginal();
 
+    void deleteMipmaps();
+
     void execRender();
 };
 

@@ -124,15 +124,14 @@ class Matrix3x3f
 {
 public:
     Matrix3x3f(float angle, const Vector3f &axis);
-    ~Matrix3x3f();
 
     friend Vector3f operator*(const Matrix3x3f &m, const Vector3f &v);
 
 private:
-    float *_data;
+    float _data[9];
 
 
-    float *operator[](int index) const;
+    const float *operator[](int index) const;
 };
 
 #endif // VECTOR_H

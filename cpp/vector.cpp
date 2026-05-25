@@ -104,24 +104,17 @@ Matrix3x3f::Matrix3x3f(float angle, const Vector3f &axis)
     const float b2 = axis.y() * sinA;
     const float b3 = axis.z() * sinA;
 
-    _data = new float[9] {
-          (1 - axis.x() * axis.x()) * cosA
-        , -a12 - b3
-        , -a31 + b2
+    _data[0] = (1 - axis.x() * axis.x()) * cosA;
+    _data[1] = -a12 - b3;
+    _data[2] = -a31 + b2;
 
-        , -a12 + b3
-        , (1 - axis.y() * axis.y()) * cosA
-        , -a23 - b1
+    _data[3] = -a12 + b3;
+    _data[4] = (1 - axis.y() * axis.y()) * cosA;
+    _data[5] = -a23 - b1;
 
-        , -a31 - b2
-        , -a23 + b1
-        , (1 - axis.z() * axis.z()) * cosA
-    };
-}
-
-Matrix3x3f::~Matrix3x3f()
-{
-    delete[] _data;
+    _data[6] = -a31 - b2;
+    _data[7] = -a23 + b1;
+    _data[8] = (1 - axis.z() * axis.z()) * cosA;
 }
 
 Vector3f operator*(const Matrix3x3f &m, const Vector3f &v)
@@ -133,7 +126,7 @@ Vector3f operator*(const Matrix3x3f &m, const Vector3f &v)
     );
 }
 
-float *Matrix3x3f::operator[](int index) const
+const float *Matrix3x3f::operator[](int index) const
 {
     return &_data[index * 3];
 }
