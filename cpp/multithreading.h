@@ -4,6 +4,7 @@
 namespace Multithreading
 {
     void init();
+    void shutdown();
     int threads();
 
     typedef void(*func)(int, const void*, void*);

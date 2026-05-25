@@ -129,5 +129,6 @@ def register():
 
 def unregister():
     global _cpp
+    cpp().deinit()
     _freeLibrary(_cpp._handle)
     _cpp = None

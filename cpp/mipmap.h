@@ -6,7 +6,7 @@
 class Mipmap : public Picture
 {
 public:
-    Mipmap(int sizeX, int sizeY, int scaleX, int scaleY);
+    Mipmap(int sizeX, int sizeY, float scaleX, float scaleY);
 
     float scaleX() const;
     float scaleY() const;

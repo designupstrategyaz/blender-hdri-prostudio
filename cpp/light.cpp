@@ -152,6 +152,7 @@ Light::~Light()
     deleteimageBrightnessOriginal();
     deleteImagePixelsOriginal();
     deleteImageEdited();
+    deleteMipmaps();
 
     delete _colorRampPrevious;
     delete _border;
@@ -707,10 +708,7 @@ void Light::updateImage()
         }
     }
 
-    for(auto &line : _mipmaps) {
-        for(auto map : line)
-            delete map;
-    }
+    deleteMipmaps();
 
     const TextureDrawer *drawer = g_image->drawer();
     const int mp2 = drawer->mp2();
@@ -760,6 +758,16 @@ void Light::deleteImagePixelsOriginal()
 void Light::deleteimageBrightnessOriginal()
 {
     delete[] _imageBrightnessOriginal;
+}
+
+void Light::deleteMipmaps()
+{
+    for(std::vector<Mipmap*> &line : _mipmaps) {
+        for(Mipmap *map : line)
+            delete map;
+    }
+
+    _mipmaps.clear();
 }
 
 void Light::execRender()

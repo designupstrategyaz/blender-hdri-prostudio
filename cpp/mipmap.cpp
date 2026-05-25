@@ -1,6 +1,6 @@
 #include "mipmap.h"
 
-Mipmap::Mipmap(int sizeX, int sizeY, int scaleX, int scaleY)
+Mipmap::Mipmap(int sizeX, int sizeY, float scaleX, float scaleY)
     : Picture(sizeX, sizeY)
 
     , _scaleX(scaleX)

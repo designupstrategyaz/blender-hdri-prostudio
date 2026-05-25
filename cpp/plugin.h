@@ -17,6 +17,8 @@ EXPORT void init(
     , void* (*lightImage)(int)
 );
 
+EXPORT void deinit();
+
 EXPORT void initImage();
 EXPORT void createFinalImage();
 

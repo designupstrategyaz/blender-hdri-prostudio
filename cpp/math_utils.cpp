@@ -17,6 +17,9 @@ int pow2(int n)
 
 int log2i(int n)
 {
+    if(n <= 1)
+        return 0;
+
     for(int i = 0, a = 1; ; i++, a *= 2) {
         if(a >= n)
             return i;
